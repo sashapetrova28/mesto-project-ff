@@ -33,7 +33,7 @@ buttonEditProfile.addEventListener('click', function() {
 handleCloseModalWindow(editProfileModal);
 
 // Обработчик «отправки» формы
-function handleFormSubmit(evt) {
+function submitEditProfileForm(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   
   //значение полей jobInput и nameInput из свойства value
@@ -50,7 +50,7 @@ function handleFormSubmit(evt) {
   evt.target.reset();
 }
 
-formElementProfile.addEventListener('submit', handleFormSubmit);
+formElementProfile.addEventListener('submit', submitEditProfileForm);
 
 //******ДОБАВЛЕНИЕ КАРТОЧЕК*******
 

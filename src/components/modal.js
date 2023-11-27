@@ -2,12 +2,9 @@
 
 //открытие модального окна
 export function openModalWindow(modalWindow) {
-  //добавляем класс с анимацией
-  modalWindow.classList.add("popup_is-animated");
-  //добавляем класс открытого попапа
-  setTimeout(function () {
-    modalWindow.classList.add("popup_is-opened");
-  }, 0);
+  
+  modalWindow.classList.add("popup_is-opened");
+  
   
   //повесили слушатель на отслеживание клика по оверлею
   modalWindow.addEventListener('click', handleCloseModalWindowOverlay);
@@ -45,10 +42,6 @@ export function closeModalWindow (modalWindow) {
   //удаляем класс открытого попапа
   modalWindow.classList.remove("popup_is-opened");
   
-  //удаляем класс с анимацией
-  setTimeout(function () {
-    modalWindow.classList.remove("popup_is-animated");
-  }, 300);
   modalWindow.removeEventListener('click', handleCloseModalWindowOverlay);
   document.removeEventListener('click', handleCloseModalWindowEscape);
 }
