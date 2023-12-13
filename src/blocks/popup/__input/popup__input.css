@@ -15,7 +15,12 @@
 }
 
 .popup__input_type_error {
+  font-size: 12px;
+  min-height: 28px;
   border-bottom-color: red;
+  box-sizing: border-box;
+  display: block;
+  margin-top: 5px;
 }
 
 .popup__form-title-error,

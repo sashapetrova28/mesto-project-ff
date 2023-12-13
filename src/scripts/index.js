@@ -16,6 +16,46 @@ import {
   deleteLikeOnCard, 
 } from '../components/api';
 
+//********КОНСТАНТЫ*********
+
+//кнопка редактирования профиля
+const buttonEditProfile = document.querySelector('.profile__edit-button');
+//модальное окно
+const editProfileModal = document.querySelector('.popup_type_edit');
+// Находим форму в DOM
+const formElementProfile = editProfileModal.querySelector('form');
+// Находим поля формы в DOM
+const nameInput = document.querySelector('.popup__input_type_name');
+const jobInput = formElementProfile.querySelector('.popup__input_type_description');
+const profileName = document.querySelector('.profile__title');
+const profileDescription = document.querySelector('.profile__description');
+
+//находим попа редактирования аватара
+const editAvatarModal = document.querySelector('.popup_type_edit-avatar');
+const buttonEditAvatar = document.querySelector('.profile__image-container');
+const formElementAvatar = editAvatarModal.querySelector('form');
+const linkInputEditAvatar = formElementAvatar.querySelector('.popup__input_type_url');
+const avatarImage = document.querySelector('.profile__image');
+
+//лист карточек
+const cardList = document.querySelector('.places__list');
+//находим кнопку добавления новой карточки
+const buttonAddCard = document.querySelector('.profile__add-button');
+//находим модальное окно
+const addCardModal = document.querySelector('.popup_type_new-card');
+//находим форму карточки 
+const formElementCard = addCardModal.querySelector('form');
+const placeNameInput = formElementCard.querySelector('.popup__input_type_card-name');
+const linkInput = formElementCard.querySelector('.popup__input_type_url');
+const deleteCardModal = document.querySelector('.popup_type_delete');
+
+//находим окно для отображения картинки
+const popupOpenImageCard = document.querySelector('.popup_type_image');
+//находим саму картинку
+const imageCard = popupOpenImageCard.querySelector('.popup__image');
+//находим описание картинки
+const captionCard = popupOpenImageCard.querySelector('.popup__caption');
+
 //********ВАЛИДАЦИЯ ФОРМ*********
 
 const objValidation = {
@@ -60,19 +100,6 @@ function renderLoading(isLoading, buttonSave) {
 
 
 //******РЕДАКТИРОВАНИЕ ПРОФИЛЯ*******
-
-
-//кнопка редактирования профиля
-const buttonEditProfile = document.querySelector('.profile__edit-button');
-//модальное окно
-const editProfileModal = document.querySelector('.popup_type_edit');
-// Находим форму в DOM
-const formElementProfile = editProfileModal.querySelector('form');
-// Находим поля формы в DOM
-const nameInput = document.querySelector('.popup__input_type_name');
-const jobInput = formElementProfile.querySelector('.popup__input_type_description');
-const profileName = document.querySelector('.profile__title');
-const profileDescription = document.querySelector('.profile__description');
 
 //открытие модального окна при клике на кнопку
 buttonEditProfile.addEventListener('click', function() {
@@ -120,13 +147,6 @@ function submitEditProfileForm(evt) {
 
 formElementProfile.addEventListener('submit', submitEditProfileForm);
 
-//находим попа редактирования аватара
-const editAvatarModal = document.querySelector('.popup_type_edit-avatar');
-const buttonEditAvatar = document.querySelector('.profile__image-container');
-const formElementAvatar = editAvatarModal.querySelector('form');
-const linkInputEditAvatar = formElementAvatar.querySelector('.popup__input_type_url');
-const avatarImage = document.querySelector('.profile__image');
-
 buttonEditAvatar.addEventListener('click', () => {
   openModalWindow(editAvatarModal);
 });
@@ -160,17 +180,6 @@ formElementAvatar.addEventListener('submit', submitEditAvatarForm);
 
 
 //******ДОБАВЛЕНИЕ КАРТОЧЕК*******
-
-//лист карточек
-const cardList = document.querySelector('.places__list');
-//находим кнопку добавления новой карточки
-const buttonAddCard = document.querySelector('.profile__add-button');
-//находим модальное окно
-const addCardModal = document.querySelector('.popup_type_new-card');
-//находим форму карточки 
-const formElementCard = addCardModal.querySelector('form');
-const placeNameInput = formElementCard.querySelector('.popup__input_type_card-name');
-const linkInput = formElementCard.querySelector('.popup__input_type_url');
 
 //открытие модального окна создания карточки
 buttonAddCard.addEventListener('click', function() {
@@ -222,7 +231,6 @@ formElementCard.addEventListener('submit', handleFormSubmitCard);
 
 //******УДАЛЕНИЕ КАРТОЧЕК*******
 
-const deleteCardModal = document.querySelector('.popup_type_delete');
 //открываем попап для подтверждения удаления карточки
 const deleteConfirmationModal = (evt) => {
   evt.preventDefault();
@@ -270,15 +278,7 @@ export const likeCard = (evt, cardId) => {
 };
 
 
-
 //******ОТКРЫТИЕ ИЗОБРАЖЕНИЯ КАРТОЧКИ*******
-
-//находим окно для отображения картинки
-const popupOpenImageCard = document.querySelector('.popup_type_image');
-//находим саму картинку
-const imageCard = popupOpenImageCard.querySelector('.popup__image');
-//находим описание картинки
-const captionCard = popupOpenImageCard.querySelector('.popup__caption');
 
 function openImageCard (itemCard) {
   imageCard.src = itemCard.link;
